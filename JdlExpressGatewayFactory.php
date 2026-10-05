@@ -3,7 +3,6 @@
 namespace Omnibus\JdlExpress;
 
 use Omnibus\Config;
-use Omnibus\Exception\InvalidConfigException;
 use Omnibus\GatewayFactory;
 use Omnibus\JdlExpress\Action\CancelAction;
 use Omnibus\JdlExpress\Action\ShippingAction;
@@ -31,7 +30,7 @@ final class JdlExpressGatewayFactory extends GatewayFactory
             'omnibus.required_options' => ['app_key', 'app_secret', 'access_token', 'customer_code'],
             'sandbox' => false,
             'omnibus.api' => function (Config $c) {
-                $http = $this->http ?? (class_exists(HttpClient::class) ? HttpClient::create() : throw new InvalidConfigException('The "jdl-express" gateway needs symfony/http-client.'));
+                $http = $this->http ?? HttpClient::create();
 
                 return new Api($http, (string) $c['app_key'], (string) $c['app_secret'], (string) $c['access_token'], (string) $c['customer_code'], (bool) $c['sandbox']);
             },
