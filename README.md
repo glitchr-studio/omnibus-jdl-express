@@ -35,4 +35,4 @@ secret; the merchant's authorisation gives the access token and the 商家编码
 Built from JD Logistics' published open platform documentation and tested on recorded answers;
 **unverified** against UAT until an account's keys are at hand.
 
-License: LGPL-3.0-or-later.
+License: MIT since 2026-10-09; earlier versions remain published under LGPL-3.0-or-later.
